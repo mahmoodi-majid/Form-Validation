@@ -16,16 +16,18 @@ export default class Form extends Component {
     this.setState({
       submitted: true,
     });
-    if(this.state.firstNameDate.length !== 0 && this.state.emailDate !== 0 && this.setState.lastNameData !==0 ){
-          this.setState({
-             allValid : true
-          })
+    if (
+      this.state.firstNameDate.length !== 0 &&
+      this.state.emailDate !== 0 &&
+      this.setState.lastNameData !== 0
+    ) {
+      this.setState({
+        allValid: true,
+      });
     }
-    setTimeout(()=>{
-      this.setState(
-          {allValid : false}
-      )
-    },3000)
+    setTimeout(() => {
+      this.setState({ allValid: false });
+    }, 3000);
   }
   changeFirstName(event) {
     this.setState({
@@ -38,12 +40,11 @@ export default class Form extends Component {
     });
   }
   changeEmailDate(event) {
-
     this.setState({
       emailDate: event.target.value,
     });
   }
-  
+
   render() {
     return (
       <div className="form-container">
@@ -53,9 +54,11 @@ export default class Form extends Component {
           onSubmit={this.submitForm.bind(this)}
         >
           {/* Uncomment the next line to show the success message */}
-          {
-           this.state.submitted && this.state.allValid && (<div className="success-message">Success! Thank you for registering</div>) 
-          }
+          {this.state.submitted && this.state.allValid && (
+            <div className="success-message">
+              Success! Thank you for registering
+            </div>
+          )}
           <input
             id="first-name"
             className="form-field"
@@ -66,10 +69,10 @@ export default class Form extends Component {
               this.changeFirstName(event);
             }}
           />
-            {this.state.submitted && this.state.firstNameDate.length === 0 && (
-              <span id="first-name-error">Please enter a first name</span>
-            )}
-            
+          {this.state.submitted && this.state.firstNameDate.length === 0 && (
+            <span id="first-name-error">Please enter a first name</span>
+          )}
+
           <input
             id="last-name"
             className="form-field"
@@ -80,9 +83,9 @@ export default class Form extends Component {
               this.changeLastName(event);
             }}
           />
-            {this.state.submitted && this.state.lastNameData.length === 0 && (
-              <span id="last-name-error">Please enter a last name</span>
-            )}
+          {this.state.submitted && this.state.lastNameData.length === 0 && (
+            <span id="last-name-error">Please enter a last name</span>
+          )}
           <input
             id="email"
             className="form-field"
@@ -94,10 +97,8 @@ export default class Form extends Component {
             }}
           />
 
-          {this.state.submitted && this.state.emailDate.length === 0  && (
-
+          {this.state.submitted && this.state.emailDate.length === 0 && (
             <span id="email-error">Please enter an email address</span>
-            
           )}
           <button className="form-field" type="submit">
             Register
