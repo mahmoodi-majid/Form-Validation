@@ -53,7 +53,6 @@ export default class Form extends Component {
           autoComplete="off"
           onSubmit={this.submitForm.bind(this)}
         >
-          {/* Uncomment the next line to show the success message */}
           {this.state.submitted && this.state.allValid && (
             <div className="success-message">
               Success! Thank you for registering
